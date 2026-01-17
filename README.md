@@ -1,103 +1,100 @@
-Notes Application
+# 📝 Notes App
 
-This repository contains a full‑stack Notes application with a Spring Boot backend, a JavaScript frontend, and a PostgreSQL database running in Docker.
+A full-stack notes application built with **Spring Boot**, **PostgreSQL**, and **React**.
 
-Requirements
+---
 
-To run this project you need the following tools installed:
+## 🚀 Features
 
-Backend
+- Create, edit, archive and delete notes
+- Create categories and assign them to notes
+- Persistent storage using PostgreSQL (Dockerized)
+- SPA frontend built with React
 
-Java JDK 17
+---
 
-Spring Boot 3.x (via Maven Wrapper)
+## 🛠 Tech Stack
 
-Frontend
+### Backend
+- Java 17
+- Spring Boot 3
+- Spring Data JPA (Hibernate)
+- PostgreSQL 15
+- Maven Wrapper
 
-Node.js 18.x
+### Frontend
+- Node.js 18
+- React
+- Vite
 
-npm 9.x
+### Infrastructure
+- Docker
+- Docker Compose
 
-Database
+---
 
-Docker 24.x or later
+## 🚀 How to Run the Application
 
-Docker Compose v2
+You can start the entire application with a single command using the provided bash script.
 
-PostgreSQL 15 (runs inside Docker, no local installation required)
+### ▶️ Quick Start (Recommended)
 
-Operating System
+1. Make the script executable:
+   ```bash
+   chmod +x run.sh
+   ```
 
-Linux or macOS
+2. Run the application:
+   ```bash
+   ./run.sh
+   ```
 
-Project Structure
-root/
-├── docker-compose.yml
-├── run.sh
-├── backend/
-│   └── notes/
-│       └── mvnw
-└── frontend/
-How to Run the Application
+This script will automatically:
 
-The application can be started with one command using the provided bash script.
+- 🐘 Start PostgreSQL using Docker Compose  
+- ☕ Start the Spring Boot backend  
+- 🌐 Start the frontend development server  
 
-1. Make the script executable
-chmod +x run.sh
-2. Run the application
-./run.sh
+---
 
-This script will:
+## ⚙️ Manual Execution (Optional)
 
-Start PostgreSQL using Docker Compose
+If you prefer to run each component manually, follow the steps below.
 
-Start the Spring Boot backend
+### 1️⃣ Start the Database
 
-Start the frontend development server
+From the project root directory:
 
-Manual Execution (Optional)
-
-If you prefer to run everything manually:
-
-Start the database
-
-From the project root:
-
+```bash
 docker-compose up -d
-Start the backend
+```
+
+### 2️⃣ Start the Backend
+
+```bash
 cd backend/notes
 ./mvnw spring-boot:run
-Start the frontend
+```
+
+### 3️⃣ Start the Frontend
+
+```bash
 cd frontend
 npm install
 npm run dev
-Backend Configuration
+```
 
-ORM: Spring Data JPA / Hibernate
+## 🛠 Backend Configuration
 
-Database: PostgreSQL
+- **ORM:** Spring Data JPA / Hibernate  
+- **Database:** PostgreSQL  
+- **Persistence:** Fully managed by JPA (no in-memory storage)  
+- **Schema Management:** Automatically created and updated on application startup  
 
-Persistence is fully managed by JPA (no in‑memory storage)
+---
 
-Schema is automatically created/updated on startup
+## 🐘 Database
 
-Database
-
-PostgreSQL runs in a Docker container
-
-Data is persisted using Docker volumes
-
-No local PostgreSQL installation is required
-
-Ports
-Service	Port
-Backend	8080
-Frontend	5173
-PostgreSQL	5432
-Notes
-
-The application uses an ORM with a relational database as required
-
-Docker ensures database persistence across restarts
-
-Maven Wrapper is used to avoid requiring a local Maven installation
+- PostgreSQL runs inside a **Docker container**  
+- Data is persisted using **Docker volumes**  
+- ❌ No local PostgreSQL installation is required
